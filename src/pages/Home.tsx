@@ -50,7 +50,7 @@ function Home() {
       {categorias.map((categoria) => (
         <label
           data-testid="category"
-          key={categoria.id}
+          key={ categoria.id }
           htmlFor=""
         >
           <input
@@ -62,12 +62,12 @@ function Home() {
       <input
         type="text"
         data-testid="query-input"
-        value={inputSearch}
-        onChange={handleSeachChange}
+        value={ inputSearch }
+        onChange={ handleSeachChange }
       />
       <button
         data-testid="query-button"
-        onClick={handleSearchButton}
+        onClick={ handleSearchButton }
       >
         Buscar
 
@@ -87,9 +87,9 @@ function Home() {
       ) : (
         <div>
           {products.map((product) => (
-            <div key={product.id} data-testid="product">
-              <img src={product.thumbnail} alt={product.title} />
-              <span>{product.price}</span>
+            <div key={ product.id } data-testid="product">
+              <img src={ product.thumbnail } alt={ product.title } />
+              <span>{ product.price }</span>
             </div>
           ))}
         </div>
