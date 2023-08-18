@@ -1,4 +1,4 @@
-function ShoppingCartPage() {
+function CartPage() {
     return (
         <div className="shopping-cart">
             <h2>Carrinho de Compras</h2>
@@ -7,4 +7,4 @@ function ShoppingCartPage() {
     );
 }
 
-export default ShoppingCartPage;
+export default CartPage;

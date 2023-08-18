@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getCategories } from '../services/api';
 
 type PegaCategoria = {
@@ -71,6 +72,11 @@ function Home() {
         Buscar
 
       </button>
+
+      <Link to="/carrinho" data-testid="shopping-cart-button">
+        Ir para o Carrinho
+      </Link>
+
       <p
         data-testid="home-initial-message"
       >
