@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+// import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home';
+import CartPage from './pages/cart';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Routes>
+        <Route path="/" element={ <Home /> } />
+        <Route path="/carrinho" element={ <CartPage /> } />
+      </Routes>
     </div>
   );
 }
