@@ -94,11 +94,17 @@ function Home() {
       ) : (
         <div>
           {products.map((product) => (
-            <div key={ product.id } data-testid="product">
-              <span>{ product.title }</span>
-              <img src={ product.thumbnail } alt={ product.title } />
-              <span>{ product.price }</span>
-            </div>
+            <Link
+              to={ `/product/${product.id}` }
+              data-testid="product-detail-link"
+              key={ product.id }
+            >
+              <div key={ product.id } data-testid="product">
+                <span>{ product.title }</span>
+                <img src={ product.thumbnail } alt={ product.title } />
+                <span>{ product.price }</span>
+              </div>
+            </Link>
           ))}
         </div>
       )}
