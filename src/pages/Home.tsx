@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getCategories } from '../services/api';
+import { Link } from 'react-router-dom';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 
 type PegaCategoria = {
   id: string,
