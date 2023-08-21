@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import { getCategories } from '../services/api';
 
 type PegaCategoria = {
   id: string,
@@ -50,7 +50,7 @@ function Home() {
   };
   return (
     <div>
-      { categorias.map((categoria) => (
+      {categorias.map((categoria) => (
         <label
           data-testid="category"
           key={ categoria.id }
@@ -62,9 +62,9 @@ function Home() {
             id={ categoria.id }
             onClick={ () => handleCategoryClick(categoria.id) }
           />
-          { categoria.name }
+          {categoria.name}
         </label>
-      )) }
+      ))}
       <input
         type="text"
         data-testid="query-input"
@@ -78,6 +78,11 @@ function Home() {
         Buscar
 
       </button>
+
+      <Link to="/carrinho" data-testid="shopping-cart-button">
+        Ir para o Carrinho
+      </Link>
+
       <p
         data-testid="home-initial-message"
       >
@@ -90,7 +95,7 @@ function Home() {
           {products.map((product) => (
             <div key={ product.id } data-testid="product">
               <img src={ product.thumbnail } alt={ product.title } />
-              <span>{product.price}</span>
+              <span>{ product.price }</span>
             </div>
           ))}
         </div>
