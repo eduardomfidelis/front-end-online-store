@@ -36,8 +36,8 @@ function Home() {
   const handleSearchButton = async () => {
     const data = await getProductsFromCategoryAndQuery('', inputSearch);
 
-    if (data.length > 0) {
-      setProducts(data);
+    if (data.results.length > 0) {
+      setProducts(data.results);
       SetNoResults(false);
     } else {
       setProducts([]);
@@ -47,7 +47,7 @@ function Home() {
 
   const handleCategoryClick = async (category: string) => {
     const infoProduct = await getProductsFromCategoryAndQuery(category as string);
-    setProducts(infoProduct);
+    setProducts(infoProduct.results);
   };
   return (
     <div>
@@ -95,6 +95,7 @@ function Home() {
         <div>
           {products.map((product) => (
             <div key={ product.id } data-testid="product">
+              <span>{ product.title }</span>
               <img src={ product.thumbnail } alt={ product.title } />
               <span>{ product.price }</span>
             </div>
