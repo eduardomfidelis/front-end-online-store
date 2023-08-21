@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import CartPage from './pages/cart';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/carrinho" element={ <CartPage /> } />
+        <Route path="/product/:id" element={ <ProductDetails /> } />
       </Routes>
     </div>
   );
