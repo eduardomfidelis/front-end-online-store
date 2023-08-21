@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCategories } from '../services/api';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 
 type PegaCategoria = {
   id: string,
@@ -33,16 +33,20 @@ function Home() {
   };
 
   const handleSearchButton = async () => {
-    const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=&q=${inputSearch}`);
-    const data = await response.json();
+    const data = await getProductsFromCategoryAndQuery('', inputSearch);
 
-    if (data.results.length > 0) {
-      setProducts(data.results);
+    if (data.length > 0) {
+      setProducts(data);
       SetNoResults(false);
     } else {
       setProducts([]);
       SetNoResults(true);
     }
+  };
+
+  const handleCategoryClick = async (category: string) => {
+    const infoProduct = await getProductsFromCategoryAndQuery(category as string);
+    setProducts(infoProduct);
   };
   return (
     <div>
@@ -50,10 +54,13 @@ function Home() {
         <label
           data-testid="category"
           key={ categoria.id }
-          htmlFor=""
+          htmlFor={ categoria.id }
         >
           <input
             type="radio"
+            name="category"
+            id={ categoria.id }
+            onClick={ () => handleCategoryClick(categoria.id) }
           />
           { categoria.name }
         </label>
