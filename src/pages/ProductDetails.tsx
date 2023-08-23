@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { AddCart } from '../services/StorageFunctions';
 
 function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -39,6 +40,13 @@ function ProductDetails() {
         onClick={ handleClick }
       >
         Ir para o carrinho
+      </button>
+      <button
+        data-testid="product-detail-add-to-cart"
+        onClick={ () => AddCart(product) }
+      >
+        Adicionar ao carrinho
+
       </button>
     </div>
   );
