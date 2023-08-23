@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import { AddCart } from '../services/StorageFunctions';
 
 type PegaCategoria = {
   id: string,
@@ -98,6 +99,13 @@ function Home() {
               <span>{ product.title }</span>
               <img src={ product.thumbnail } alt={ product.title } />
               <span>{ product.price }</span>
+              <button
+                data-testid="product-add-to-cart"
+                onClick={ () => AddCart(product) }
+              >
+                Adicionar ao Carrinho
+
+              </button>
             </div>
           ))}
         </div>
